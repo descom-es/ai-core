@@ -1,0 +1,42 @@
+{
+    "name": "descom/aws-bedrock",
+    "description": "A Laravel module for aws-bedrock",
+    "version": "0.1.0",
+    "type": "library",
+    "keywords": ["laravel", "module", "aws-bedrock"],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Descom\\AwsBedrock\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Descom\\AwsBedrock\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.4",
+        "aws/aws-sdk-php": "^3.300",
+        "illuminate/contracts": "^13.0",
+        "illuminate/support": "^13.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "orchestra/testbench": "^11.0",
+        "phpunit/phpunit": "^12.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Descom\\AwsBedrock\\AwsBedrockServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "analyse": "vendor/bin/phpstan analyse"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

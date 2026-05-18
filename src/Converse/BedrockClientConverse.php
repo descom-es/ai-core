@@ -50,7 +50,6 @@ class BedrockClientConverse
 
             return $this->workWithResponse($messages, $result);
         } catch (\Exception $exception) {
-            dd($payload, $exception);
             throw $exception;
         }
     }

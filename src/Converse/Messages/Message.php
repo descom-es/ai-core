@@ -24,7 +24,7 @@ final class Message
 
     public static function fromArray(array $data): self
     {
-        $contents = new Contents();
+        $contents = new Contents;
 
         foreach ($data['content'] as $contentData) {
             $contents->addContent(Content::fromArray($contentData));

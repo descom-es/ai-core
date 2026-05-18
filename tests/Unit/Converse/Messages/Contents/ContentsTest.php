@@ -14,7 +14,7 @@ final class ContentsTest extends TestCase
 {
     public function test_add_content_appends_in_order(): void
     {
-        $contents = new Contents();
+        $contents = new Contents;
         $first = new TextContent('first');
         $second = new ImageContent('png', new BinarySource('bytes'));
 

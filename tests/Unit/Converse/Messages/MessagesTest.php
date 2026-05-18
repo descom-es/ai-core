@@ -15,7 +15,7 @@ final class MessagesTest extends TestCase
 {
     public function test_add_message_appends_in_order(): void
     {
-        $messages = new Messages();
+        $messages = new Messages;
         $first = new Message(Role::USER, new Contents([new TextContent('one')]));
         $second = new Message(Role::ASSISTANT, new Contents([new TextContent('two')]));
 

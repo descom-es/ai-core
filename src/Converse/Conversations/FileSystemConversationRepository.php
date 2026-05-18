@@ -23,7 +23,7 @@ final class FileSystemConversationRepository extends ConversationRepository
     {
         $payload = $this->read();
 
-        $messages = new Messages();
+        $messages = new Messages;
 
         foreach ($payload as $messageData) {
             $messages->addMessage(Message::fromArray(self::decodeBinaryBytes($messageData)));

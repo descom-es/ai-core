@@ -2,6 +2,8 @@
 
 namespace Descom\AwsBedrock\Converse;
 
+use Aws\BedrockRuntime\BedrockRuntimeClient;
+use Aws\Credentials\CredentialProvider;
 use Descom\AwsBedrock\Converse\Messages\Contents\Contents;
 use Descom\AwsBedrock\Converse\Messages\Message;
 use Descom\AwsBedrock\Converse\Messages\Messages;
@@ -9,8 +11,6 @@ use Descom\AwsBedrock\Converse\Messages\Response\Output\ToolUseContent;
 use Descom\AwsBedrock\Converse\Messages\Response\Response;
 use Descom\AwsBedrock\Converse\Messages\Role;
 use Descom\AwsBedrock\Tools\ExecuteTool;
-use Aws\BedrockRuntime\BedrockRuntimeClient;
-use Aws\Credentials\CredentialProvider;
 use Illuminate\Support\Facades\App;
 
 class BedrockClientConverse

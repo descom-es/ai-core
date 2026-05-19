@@ -2,6 +2,10 @@
 
 A Laravel module for aws-bedrock.
 
+[![tests](https://github.com/descom-es/aws-bedrock/actions/workflows/tests.yml/badge.svg)](https://github.com/descom-es/aws-bedrock/actions/workflows/tests.yml)
+[![static analysis](https://github.com/descom-es/aws-bedrock/actions/workflows/static-analysis.yml/badge.svg)](https://github.com/descom-es/aws-bedrock/actions/workflows/static-analysis.yml)
+[![lint](https://github.com/descom-es/aws-bedrock/actions/workflows/lint.yml/badge.svg)](https://github.com/descom-es/aws-bedrock/actions/workflows/lint.yml)
+
 ## Usage
 
 `BedrockClientConverse` is the wrapper around AWS Bedrock's Converse API. The recommended way to use it is through the `Agent` abstraction; you can also instantiate the client directly when you need finer control over the message history.

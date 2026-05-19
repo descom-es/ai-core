@@ -4,6 +4,7 @@ namespace Descom\AwsBedrock\Converse;
 
 use Aws\BedrockRuntime\BedrockRuntimeClient;
 use Aws\Credentials\CredentialProvider;
+use Descom\AwsBedrock\Converse\Exceptions\BedrockRequestException;
 use Descom\AwsBedrock\Converse\Messages\Contents\Contents;
 use Descom\AwsBedrock\Converse\Messages\Message;
 use Descom\AwsBedrock\Converse\Messages\Messages;
@@ -38,6 +39,9 @@ class BedrockClientConverse
         ];
     }
 
+    /**
+     * @throws BedrockRequestException
+     */
     public function request(Messages $messages): Response
     {
         $client = $this->client();
@@ -50,7 +54,7 @@ class BedrockClientConverse
 
             return $this->workWithResponse($messages, $result);
         } catch (\Exception $exception) {
-            throw $exception;
+            throw new BedrockRequestException($payload, $exception);
         }
     }
 

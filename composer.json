@@ -17,12 +17,12 @@
     "require": {
         "php": "^8.4",
         "aws/aws-sdk-php": "^3.300",
-        "illuminate/contracts": "^13.0",
-        "illuminate/support": "^13.0"
+        "illuminate/contracts": "^12.0|^13.0",
+        "illuminate/support": "^12.0|^13.0"
     },
     "require-dev": {
         "larastan/larastan": "^3.0",
-        "orchestra/testbench": "^11.0",
+        "orchestra/testbench": "^10.0|^11.0",
         "phpunit/phpunit": "^12.0"
     },
     "extra": {

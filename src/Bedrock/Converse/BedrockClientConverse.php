@@ -3,7 +3,6 @@
 namespace Descom\Ai\Bedrock\Converse;
 
 use Aws\BedrockRuntime\BedrockRuntimeClient;
-use Aws\Credentials\CredentialProvider;
 use Descom\Ai\Bedrock\Converse\Exceptions\BedrockRequestException;
 use Descom\Ai\Bedrock\Messages\Contents\Contents;
 use Descom\Ai\Bedrock\Messages\Message;
@@ -12,12 +11,12 @@ use Descom\Ai\Bedrock\Messages\Response\Output\ToolUseContent;
 use Descom\Ai\Bedrock\Messages\Response\Response;
 use Descom\Ai\Bedrock\Messages\Role;
 use Descom\Ai\Tools\ExecuteTool;
-use Illuminate\Support\Facades\App;
 
 class BedrockClientConverse
 {
     public function __construct(
-        public readonly Agent $agent
+        public readonly Agent $agent,
+        protected readonly array $awsCredentials = []
     ) {}
 
     public function tools(): array
@@ -141,22 +140,6 @@ class BedrockClientConverse
 
     private function client(): BedrockRuntimeClient
     {
-        $config = match (App::environment()) {
-            'local' => $this->configLocal(),
-            default => config('aws.auth'),
-        };
-
-        return new BedrockRuntimeClient($config);
-    }
-
-    private function configLocal(): array
-    {
-        $credentials = CredentialProvider::sso('bedrock');
-
-        return [
-            'region' => config('aws.auth.region'),
-            'version' => config('aws.auth.version'),
-            'credentials' => $credentials,
-        ];
+        return new BedrockRuntimeClient($this->awsCredentials);
     }
 }

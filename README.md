@@ -1,10 +1,14 @@
 # Ai
 
-[![tests](https://github.com/descom-es/aws-bedrock/actions/workflows/tests.yml/badge.svg)](https://github.com/descom-es/aws-bedrock/actions/workflows/tests.yml)
-[![static analysis](https://github.com/descom-es/aws-bedrock/actions/workflows/static-analysis.yml/badge.svg)](https://github.com/descom-es/aws-bedrock/actions/workflows/static-analysis.yml)
-[![lint](https://github.com/descom-es/aws-bedrock/actions/workflows/lint.yml/badge.svg)](https://github.com/descom-es/aws-bedrock/actions/workflows/lint.yml)
+[![tests](https://github.com/descom-es/ai-core/actions/workflows/tests.yml/badge.svg)](https://github.com/descom-es/ai-core/actions/workflows/tests.yml)
+[![static analysis](https://github.com/descom-es/ai-core/actions/workflows/static-analysis.yml/badge.svg)](https://github.com/descom-es/ai-core/actions/workflows/static-analysis.yml)
+[![lint](https://github.com/descom-es/ai-core/actions/workflows/lint.yml/badge.svg)](https://github.com/descom-es/ai-core/actions/workflows/lint.yml)
 
-A Laravel module for aws-bedrock.
+## Installation
+
+```bash
+composer require descom/ai-core
+```
 
 ## Usage
 

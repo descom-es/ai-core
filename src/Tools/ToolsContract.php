@@ -1,6 +1,6 @@
 <?php
 
-namespace Descom\AwsBedrock\Tools;
+namespace Descom\Ai\Tools;
 
 interface ToolsContract
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Descom\AwsBedrock\Tests\Stubs;
+namespace Descom\Ai\Tests\Stubs;
 
-use Descom\AwsBedrock\Tools\ToolsContract;
+use Descom\Ai\Tools\ToolsContract;
 
 final class FakeTool implements ToolsContract
 {

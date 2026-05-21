@@ -1,18 +1,18 @@
 {
-    "name": "descom/aws-bedrock",
-    "description": "A Laravel module for aws-bedrock",
+    "name": "descom/ai-core",
+    "description": "A Laravel module for AI core functionalities",
     "version": "0.1.0",
     "type": "library",
-    "keywords": ["laravel", "module", "aws-bedrock"],
+    "keywords": ["laravel", "module", "ai-core", "aws-bedrock", "tools"],
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Descom\\AwsBedrock\\": "src/"
+            "Descom\\Ai\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Descom\\AwsBedrock\\Tests\\": "tests/"
+            "Descom\\Ai\\Tests\\": "tests/"
         }
     },
     "require": {
@@ -29,7 +29,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Descom\\AwsBedrock\\AwsBedrockServiceProvider"
+                "Descom\\Ai\\AiServiceProvider"
             ]
         }
     },

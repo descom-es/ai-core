@@ -1,4 +1,4 @@
-# AwsBedrock
+# Ai
 
 [![tests](https://github.com/descom-es/aws-bedrock/actions/workflows/tests.yml/badge.svg)](https://github.com/descom-es/aws-bedrock/actions/workflows/tests.yml)
 [![static analysis](https://github.com/descom-es/aws-bedrock/actions/workflows/static-analysis.yml/badge.svg)](https://github.com/descom-es/aws-bedrock/actions/workflows/static-analysis.yml)
@@ -12,10 +12,10 @@ A Laravel module for aws-bedrock.
 
 ### 1. Recommended flow — extend `Agent`
 
-Define an agent by extending `Descom\AwsBedrock\Converse\Agent` and providing a model id, a system prompt and the list of tools (empty array if you don't use any):
+Define an agent by extending `Descom\Ai\Bedrock\Converse\Agent` and providing a model id, a system prompt and the list of tools (empty array if you don't use any):
 
 ```php
-use Descom\AwsBedrock\Converse\Agent;
+use Descom\Ai\Bedrock\Converse\Agent;
 
 final class SupportAgent extends Agent
 {
@@ -52,12 +52,12 @@ echo $response->metrics()->latencyMs;
 When you need to build a custom message history (multi-turn conversation, mixed roles, replayed transcripts) instantiate the client directly with an `Agent` and call `request()`:
 
 ```php
-use Descom\AwsBedrock\Converse\BedrockClientConverse;
-use Descom\AwsBedrock\Converse\Messages\Contents\Contents;
-use Descom\AwsBedrock\Converse\Messages\Contents\TextContent;
-use Descom\AwsBedrock\Converse\Messages\Message;
-use Descom\AwsBedrock\Converse\Messages\Messages;
-use Descom\AwsBedrock\Converse\Messages\Role;
+use Descom\Ai\Bedrock\Converse\BedrockClientConverse;
+use Descom\Ai\Bedrock\Messages\Contents\Contents;
+use Descom\Ai\Bedrock\Messages\Contents\TextContent;
+use Descom\Ai\Bedrock\Messages\Message;
+use Descom\Ai\Bedrock\Messages\Messages;
+use Descom\Ai\Bedrock\Messages\Role;
 
 $client = new BedrockClientConverse(new SupportAgent());
 
@@ -75,8 +75,8 @@ $response = $client->request($messages);
 A single message can carry several content items. Combine `TextContent` with `ImageContent`, `DocumentContent` or `AudioContent`, and choose `BinarySource` (raw bytes) or `S3Source` (objects stored in S3):
 
 ```php
-use Descom\AwsBedrock\Converse\Messages\Contents\ImageContent;
-use Descom\AwsBedrock\Converse\Messages\Contents\Sources\BinarySource;
+use Descom\Ai\Bedrock\Messages\Contents\ImageContent;
+use Descom\Ai\Bedrock\Messages\Contents\Sources\BinarySource;
 
 $contents = new Contents([
     new TextContent('What is in this picture?'),
@@ -90,10 +90,10 @@ $response = $client->request($messages);
 
 ### 4. Tool calling
 
-Define a tool by implementing `Descom\AwsBedrock\Tools\ToolsContract`:
+Define a tool by implementing `Descom\Ai\Tools\ToolsContract`:
 
 ```php
-use Descom\AwsBedrock\Tools\ToolsContract;
+use Descom\Ai\Tools\ToolsContract;
 
 final class GetWeatherTool implements ToolsContract
 {
@@ -133,7 +133,7 @@ When the model returns a `tool_use` stop reason, `BedrockClientConverse::request
 
 ### 5. Inspecting the response
 
-`request()` returns a `Descom\AwsBedrock\Converse\Messages\Response\Response` with typed accessors:
+`request()` returns a `Descom\Ai\Bedrock\Messages\Response\Response` with typed accessors:
 
 ```php
 $response->output()->message->text();      // assistant text
@@ -150,7 +150,7 @@ $response->metrics()->latencyMs;
 Any AWS SDK exception raised during the underlying `converse()` call is wrapped in `BedrockRequestException`. The original exception is preserved as `$previous`, and the offending request payload is exposed on the `payload` property for debugging:
 
 ```php
-use Descom\AwsBedrock\Converse\Exceptions\BedrockRequestException;
+use Descom\Ai\Bedrock\Converse\Exceptions\BedrockRequestException;
 
 try {
     $response = $agent->ask('Hello');

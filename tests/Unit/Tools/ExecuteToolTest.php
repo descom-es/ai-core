@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Descom\AwsBedrock\Tests\Unit\Tools;
+namespace Descom\Ai\Tests\Unit\Tools;
 
-use Descom\AwsBedrock\Tests\Stubs\FakeTool;
-use Descom\AwsBedrock\Tests\TestCase;
-use Descom\AwsBedrock\Tools\ExecuteTool;
+use Descom\Ai\Tests\Stubs\FakeTool;
+use Descom\Ai\Tests\TestCase;
+use Descom\Ai\Tools\ExecuteTool;
 use RuntimeException;
 
 final class ExecuteToolTest extends TestCase

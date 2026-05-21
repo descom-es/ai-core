@@ -1,8 +1,8 @@
 <?php
 
-namespace Descom\AwsBedrock\Tests;
+namespace Descom\Ai\Tests;
 
-use Descom\AwsBedrock\AwsBedrockServiceProvider;
+use Descom\Ai\AiServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
@@ -10,7 +10,7 @@ abstract class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            AwsBedrockServiceProvider::class,
+            AiServiceProvider::class,
         ];
     }
 

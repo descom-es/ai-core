@@ -1,7 +1,6 @@
 {
     "name": "descom/ai-core",
     "description": "A Laravel module for AI core functionalities",
-    "version": "0.1.0",
     "type": "library",
     "keywords": ["laravel", "module", "ai-core", "aws-bedrock", "tools"],
     "license": "MIT",
